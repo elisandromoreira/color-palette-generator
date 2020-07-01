@@ -1,0 +1,271 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  color: rgb(50, 50, 50);
+}
+
+button {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+path,
+i,
+svg {
+  pointer-events: none;
+}
+
+.top-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: white;
+  height: 15vh;
+}
+
+.app-name {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.gradient-text {
+  text-transform: uppercase;
+  background: linear-gradient(140deg, #11998e 0%, #38ef7d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.app-tagline p {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.panel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.panel button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  padding: 1rem;
+  border: none;
+  border-left: solid 1px #eee;
+  cursor: pointer;
+  background: #ffffff;
+}
+
+.panel button i {
+  font-size: 1.2rem;
+  margin-right: 0.2rem;
+}
+
+.library-panel,
+.generate-panel,
+.save-panel {
+  display: flex;
+}
+
+.colors {
+  height: 85vh;
+  display: flex;
+  color: rgb(210, 210, 210);
+}
+
+.color {
+  height: 85vh;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  overflow: hidden;
+}
+
+.color h2 {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.sliders {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0%;
+  background: white;
+  font-size: 1rem;
+  opacity: 0;
+  padding: 1rem;
+  width: 90%;
+  border-top-right-radius: 0.3rem;
+  border-top-left-radius: 0.3rem;
+  pointer-events: none;
+  /* Classe de Ajuste */
+  transform: translateY(100px);
+  transition: all 0.5s ease-in-out;
+}
+
+.sliders.active {
+  opacity: 1;
+  box-shadow: 0 -10px 50px 0 rgba(0, 0, 0, 0.3);
+  transform: translateY(0px);
+  pointer-events: all;
+}
+
+.sliders button,
+.close-save,
+.close-library {
+  position: absolute;
+  background: white;
+  top: 0;
+  right: 0;
+  padding: 0.7rem;
+  border-radius: 2rem;
+  border: none;
+  color: #052441;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.adjust,
+.lock {
+  font-size: 1.2rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin: 1rem 0rem;
+}
+
+/*  Alguns Estilos do Slider */
+
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 1rem 0rem;
+  width: 100%;
+  position: relative;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.copy-container,
+.save-container,
+.library-container {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.copy-popup,
+.save-popup,
+.library-popup {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 0.3rem;
+  padding: 2rem;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease;
+  transform: translateY(-2rem);
+  min-width: 30%;
+  min-height: 30vh;
+}
+
+.copy-container.active,
+.save-container.active,
+.library-container.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.copy-popup.active,
+.save-popup.active,
+.library-popup.active {
+  transform: translateY(0rem);
+}
+
+.save-popup h4 {
+  text-align: center;
+  width: 70%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  line-height: 2.3rem;
+}
+
+.save-name {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin: 1.5rem auto;
+}
+
+.submit-save {
+  padding: 1rem 3rem;
+  background: linear-gradient(140deg, #11998e 0%, #38ef7d 100%);
+  border: none;
+  border-radius: 0.3rem;
+  text-transform: uppercase;
+  color: white;
+  cursor: pointer;
+}
+
+.library-popup {
+  min-width: 40%;
+  padding: 1rem;
+  justify-content: flex-start;
+  overflow-y: scroll;
+  max-height: 50vh;
+}
+.custom-palette {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 2rem;
+}
+.small-preview {
+  display: flex;
+  flex: 1;
+}
+.custom-palette h4 {
+  flex: 1;
+}
+
+.small-preview div {
+  height: 3rem;
+  flex: 1;
+}
+.pick-palette-btn {
+  height: 3rem;
+  margin-left: 1rem;
+  padding: 0 2rem;
+  background: linear-gradient(140deg, #11998e 0%, #38ef7d 100%);
+  border: none;
+  border-radius: 0.3rem;
+  text-transform: uppercase;
+  color: white;
+  cursor: pointer;
+}
